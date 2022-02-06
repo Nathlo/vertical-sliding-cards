@@ -24,11 +24,48 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: absolute;
   width: 430px;
   padding: 20px;
   background: #fff;
   border-radius: 100px 20px 20px 100px;
+  pointer-events: none;
+  opacity: 0;
+  animation: animate 15s linear infinite;
+  animation-delay: calc(
+    3s * var(--delay)
+  ); /* Produce Sliding Effect on each card*/
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) scale(0.5);
+  }
+  5%,
+  20% {
+    opacity: 0.4;
+    transform: translateY(100%) scale(0.7);
+  }
+  25%,
+  40% {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0%) scale(1);
+  }
+  45%,
+  60% {
+    opacity: 0.4;
+    transform: translateY(-100%) scale(0.7);
+  }
+  65% {
+    opacity: 0.4;
+    transform: translateY(-100%) scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%) scale(0);
+  }
 }
 
 .card .content {
