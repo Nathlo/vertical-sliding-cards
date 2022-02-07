@@ -8,6 +8,9 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100vh;
   background: linear-gradient(to bottom, #bea2e7 0%, #86b7e7 100%);
@@ -17,7 +20,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  width: 50%;
+  height: 60vh;
 }
 
 .wrapper .card {
@@ -35,6 +39,14 @@ body {
   animation-delay: calc(
     3s * var(--delay)
   ); /* Produce Sliding Effect on each card*/
+}
+
+.wrapper:hover .card {
+  animation-play-state: paused;
+}
+
+.wrapper .card:last-child {
+  animation-delay: calc(-3s * var(--delay));
 }
 
 @keyframes animate {
@@ -58,13 +70,10 @@ body {
     opacity: 0.4;
     transform: translateY(-100%) scale(0.7);
   }
-  65% {
-    opacity: 0.4;
-    transform: translateY(-100%) scale(0.5);
-  }
+  65%,
   100% {
     opacity: 0;
-    transform: translateY(-100%) scale(0);
+    transform: translateY(-100%) scale(0.5);
   }
 }
 
